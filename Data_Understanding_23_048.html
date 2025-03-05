@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My Biodata</title>
+    <title>Understanding Data &#8212; My Biodata</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -63,6 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Understanding_23_048';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas 2" href="Tugas2.html" />
     <link rel="prev" title="Welcome To Coretan Penaku" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -167,7 +168,11 @@
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Understanding Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas2.html"><strong>Tugas 2</strong></a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -335,9 +340,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -348,19 +351,11 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Understanding Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -370,7 +365,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><strong>Understanding Data</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-data">
+<h1>Understanding Data<a class="headerlink" href="#understanding-data" title="Link to this heading">#</a></h1>
+<p><strong>Understanding Data</strong></p>
 <p>Merupakan salah satu tahapan penting dalam Knowledge Discovery in database (KDD) atau data maining yang merupakan langkah awal untuk memahami data secara mendalam sebelum melakukan analisis lebih lanjut karena nantinya akan memengaruhi keberhasilan seluruh proses data maining#</p>
 <p><strong>Pengumpulan data</strong></p>
 <p>Dalam tahap ini kami sudah mengumpulkan data dan meletakkan di <a class="reference external" href="http://aiven.io">aiven.io</a> yang merupakan sumber data dari data base yang berbeda dalam tahapan pengumpulan data harus dipastikan bahwa semua data harus relevan sesuai dengan tujuan analisis.</p>
@@ -382,15 +379,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymysql
-  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
-Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymysql
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pymysql-1.1.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.1.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.3.1</span> -&gt; <span class=" -Color -Color-Green">25.0.1</span>
@@ -406,24 +395,7 @@ Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting psycopg2-binary
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/3.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">3.0/3.0 MB</span> <span class=" -Color -Color-Red">46.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: psycopg2-binary
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed psycopg2-binary-2.9.10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2-binary in /usr/local/python/3.12.1/lib/python3.12/site-packages (2.9.10)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.3.1</span> -&gt; <span class=" -Color -Color-Green">25.0.1</span>
@@ -725,7 +697,7 @@ Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/p
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+----------------+----------------+---------------+
 | id   | class          | petal length   | petal width   |
 |------+----------------+----------------+---------------|
-| 1    | Iris-setosa    | 86.4           | 70.0          |
+| 1    | Iris-setosa    | 80.4           | 70.0          |
 | 2    | Iris-setosa    | 1.4            | 0.2           |
 | 3    | Iris-setosa    | 1.3            | 0.2           |
 | ...  | ...            | ...            | ...           |
@@ -833,7 +805,7 @@ Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/p
 | ...  | ...            | ...            | ...           | ...            | ...           |
 | 149  | Iris-virginica | 6.2            | 3.4           | 5.4            | 2.3           |
 | 150  | Iris-virginica | 5.9            | 3.0           | 5.1            | 1.8           |
-| 1    | Iris-setosa    | 20.1           | 30.5          | 86.4           | 70.0          |
+| 1    | Iris-setosa    | 20.1           | 30.5          | 80.4           | 70.0          |
 +------+----------------+----------------+---------------+----------------+---------------+
 </pre></div>
 </div>
@@ -1128,6 +1100,7 @@ Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/p
 </div>
 <p><strong>Validasi data</strong></p>
 <p>Validasi data dilakukan untuk memastikan bahwa data yang digunakan bersih, lengkap, dan sesuai sebelum dianalisis atau divisualisasikan dan memastikan apakah data memcerminkan realitas atau fenomena yang ingin dipelajari</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1168,28 +1141,21 @@ Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/p
         <p class="prev-next-title">Welcome To Coretan Penaku</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Tugas2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Tugas 2</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
@@ -1210,7 +1176,7 @@ By Callista Novia S.P
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
