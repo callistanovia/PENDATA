@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LOF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Apa sih Outlier itu ?" href="KNN.html" />
+    <link rel="prev" title="Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding" href="KNN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -172,10 +172,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Data_Understanding_23_048.html">Understanding Data</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Tugas2.html"><strong>Tugas 2</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="KNN.html">Apa sih Outlier itu ?</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="KNN.html"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#"><strong>Deteksi Outlier dengan metode Local Outlier Factor (LOF) dalam Data Understanding</strong></a></li>
 </ul>
 </details></li>
@@ -373,7 +370,10 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-sih-lof-itu">Apa sih LOF itu?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-lof">Tahapan LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-lof">Menghitung Manual LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-lof">Menghitung Manual LOF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-lof-untuk-titik-outlier-20-0-30-0"><strong>Hitung LOF untuk Titik Outlier (20.0, 30.0)</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh">IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</a></li>
 </ul>
             </nav>
@@ -444,39 +444,66 @@ Misalkan data berikut:</p></li>
 <td><p>5.0</p></td>
 <td><p>6.0</p></td>
 </tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>6.0</p></td>
+<td><p>7.0</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>7.0</p></td>
+<td><p>8.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>8.0</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>9.0</p></td>
+<td><p>10.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>20.0</p></td>
+<td><p>30.0</p></td>
+</tr>
 </tbody>
 </table>
 </div>
-<p>Kita akan hitung LOF untuk <strong>titik 3</strong> (3.0, 4.0).</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>Hitung Jarak Euclidean</strong>:<br />
-Jarak antara titik 3 dan titik lainnya:</p>
+<p>Dari tabel di atas, titik <strong>(20.0, 30.0)</strong> adalah outlier karena jauh berbeda dibandingkan titik lainnya.</p>
+<section id="hitung-lof-untuk-titik-outlier-20-0-30-0">
+<h3><strong>Hitung LOF untuk Titik Outlier (20.0, 30.0)</strong><a class="headerlink" href="#hitung-lof-untuk-titik-outlier-20-0-30-0" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Hitung Jarak Euclidean</strong> ke tetangga terdekat:</p>
 <ul class="simple">
-<li><p>Titik 3 ke Titik 2: 1.41</p></li>
-<li><p>Titik 3 ke Titik 4: 1.41</p></li>
+<li><p>Ke Titik 9 (9.0, 10.0) ≈ <strong>22.36</strong></p></li>
+<li><p>Ke Titik 8 (8.0, 9.0) ≈ <strong>24.41</strong></p></li>
 </ul>
 </li>
-<li><p><strong>Tentukan k-Tetangga Terdekat</strong> (k=2):<br />
-Titik 3 memiliki dua tetangga terdekat: titik 2 dan titik 4.</p></li>
-<li><p><strong>Hitung Reachability Distance</strong>:<br />
-Reachability distance antara titik 3 dan tetangga:</p>
+<li><p><strong>Tentukan k-Tetangga Terdekat</strong> (k=2):</p>
 <ul class="simple">
-<li><p>Titik 3 ke Titik 2: 1.41</p></li>
-<li><p>Titik 3 ke Titik 4: 1.41</p></li>
+<li><p>Tetangga: Titik 9 &amp; Titik 8</p></li>
+</ul>
+</li>
+<li><p><strong>Hitung Reachability Distance</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \text{reach-dist}(10,9) = 22.36 \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \text{reach-dist}(10,8) = 24.41 \)</span></p></li>
 </ul>
 </li>
 <li><p><strong>Hitung Local Reachability Density (LRD)</strong>:<br />
-<span class="math notranslate nohighlight">\(
-\text{LRD}(3) = \frac{1}{\frac{1}{2} \times (1.41 + 1.41)} = 0.71
-\)</span></p></li>
+$<span class="math notranslate nohighlight">\(
+\text{LRD}(10) = \frac{1}{\frac{1}{2} (22.36 + 24.41)} = 0.043
+\)</span>$</p></li>
 <li><p><strong>Hitung LOF</strong>:<br />
-<span class="math notranslate nohighlight">\(
-\text{LOF}(3) = \frac{0.71}{0.71} + \frac{0.71}{0.71} = 2
-\)</span></p></li>
-<li><p><strong>Interpretasi</strong>:<br />
-Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>outlier</strong>.</p></li>
+$<span class="math notranslate nohighlight">\(
+\text{LOF}(10) = \frac{0.043}{0.31} + \frac{0.043}{0.35} = 7.5
+\)</span>$</p></li>
+<li><p><strong>Interpretasi</strong>:</p>
+<ul class="simple">
+<li><p><strong>LOF = 7.5</strong> → Sangat tinggi dibandingkan 1, jadi titik ini adalah <strong>outlier yang jelas</strong>!</p></li>
+</ul>
+</li>
 </ol>
-<p>LOF mengukur seberapa terisolasi titik dibandingkan tetangganya. Titik dengan LOF lebih besar dari 1 dianggap outlier.</p>
+<p>LOF menunjukkan bahwa titik <strong>(20.0, 30.0)</strong> sangat terisolasi dibandingkan dengan tetangga terdekatnya.</p>
+</section>
 </section>
 <section id="implementasi-pakai-sklearn-untuk-data-contoh">
 <h2>IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH<a class="headerlink" href="#implementasi-pakai-sklearn-untuk-data-contoh" title="Link to this heading">#</a></h2>
@@ -486,10 +513,10 @@ Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>o
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
 
-<span class="c1"># Dataset contoh</span>
+<span class="c1"># Dataset contoh dengan 10 data (termasuk 1 outlier pada ID 10)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Feature1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>
-    <span class="s1">&#39;Feature2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]</span>
+    <span class="s1">&#39;Feature1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>
+    <span class="s1">&#39;Feature2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1"># Membuat DataFrame</span>
@@ -525,13 +552,17 @@ Karena <strong>LOF = 2</strong> (lebih besar dari 1), titik 3 dianggap <strong>o
 2       3.0       4.0          1
 3       4.0       5.0          1
 4       5.0       6.0          1
+5       6.0       7.0          1
+6       7.0       8.0          1
+7       8.0       9.0          1
+8       9.0      10.0          1
+9      20.0      30.0         -1
 
-Jumlah outlier: 0
+Jumlah outlier: 1
 
 Data Outlier:
-Empty DataFrame
-Columns: [Feature1, Feature2, LOF Label]
-Index: []
+   Feature1  Feature2  LOF Label
+9      20.0      30.0         -1
 </pre></div>
 </div>
 </div>
@@ -861,7 +892,7 @@ Data Outlier:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Apa sih Outlier itu ?</p>
+        <p class="prev-next-title"><strong>Deteksi Outlier dengan K-Nearest Neighbors (KNN) dalam Data Understanding</strong></p>
       </div>
     </a>
 </div>
@@ -883,7 +914,10 @@ Data Outlier:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apa-sih-lof-itu">Apa sih LOF itu?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-lof">Tahapan LOF</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-lof">Menghitung Manual LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-manual-lof">Menghitung Manual LOF</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-lof-untuk-titik-outlier-20-0-30-0"><strong>Hitung LOF untuk Titik Outlier (20.0, 30.0)</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-pakai-sklearn-untuk-data-contoh">IMPLEMENTASI PAKAI SKLEARN UNTUK DATA CONTOH</a></li>
 </ul>
   </nav></div>
